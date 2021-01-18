@@ -1,0 +1,250 @@
+<!-- <div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="w3-bar">
+        <div class="input-group">
+          <div class="row align-items-center">
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+
+              <a [routerLink]="'/lcm/contractor-create'"> <button type="button"
+                  class="btn btn-pill btn-block btn-primary">Create</button> </a>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+              <button type="button" class="btn btn-pill btn-block btn-primary">Import</button>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+              <a [routerLink]="'/leaves/mail'"> <button type="button"
+                  class="btn btn-pill btn-block btn-primary">Email</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+
+      <div class="card-header">
+
+        <i class="fa fa-align-justify"></i> Combined All Table
+
+      </div>
+      <div id="fetchbtn">
+        <button type="button" class="btn btn-outline-success" (click)="getAllContractor();">Click me</button>
+      </div>
+      <div class="card-body">
+        
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+              <th>Contractor Code</th>
+            <th>Full Name</th>
+            <th>Mobile No</th>
+            <th>Address</th>
+            <th>Date of Birth</th>
+           
+            <th>Action</th>
+           
+            
+          </thead>
+          <tbody>
+            <tr *ngFor="let contractor of myresponse">
+              <td>{{contractor.lab_code }}</td>
+              <td>{{contractor.lab_cd_fname}}{{contractor.lab_cd_mname}}{{contractor.lab_cd_lname}}</td>
+              <td>{{contractor.lab_cd_mobile_no}}</td>
+              <td>{{contractor.lab_corr_line1}}{{contractor.lab_corr_line2}}</td>
+             
+            </tr>
+          </tbody>  
+        </table>
+        <nav>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div> 
+  
+</div>-->
+
+<ng-template #content let-modal>
+  <div class="modal-header" style="background-color: lightsteelblue;">
+    <h4 class="modal-title" id="modal-basic-title" >Import</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" >
+        <div class="card-card">
+            <div class="card-body">
+              <form #import = "ngForm" (ngSubmit) = "Import(import.value)">
+                  <div class="modal-body">
+                      <h5>Import Contarctor's Data by excel sheet</h5>
+                      <p>Please choose only excel file..</p>
+                      <!-- <input type="file" ng2FileSelect [uploader]="uploader" ngModel > -->
+                      <div class="col-md-9">
+                        <!-- <input type="file" id="file-input" name="file-input" ngModel> -->
+                        <input type="file" style="display: inline-block;" (change)="incomingfile($event)" placeholder="Upload File" accept=".xlsx">
+                           
+                        </div>
+          
+                    </div>
+                   <div class="modal-footer"> 
+                      <!-- <button type="button" class="btn btn-default waves-effect "
+                        data-dismiss="modal">Close</button> -->
+                      <!-- <button type="submit"
+                        class="btn btn-primary waves-effect waves-light ">Import</button> -->
+                        <button type="button" class="btn btn-info" (click)="Upload()">Upload</button> 
+                    </div> 
+                <!-- <div class="modal-body">
+                  <h5>Import Contractor's Data by excel sheet</h5>
+                  <p>Please choose only excel file..</p>
+                  
+                  <input class="from_control" type="file" name="excel_file" ngModel >
+      
+                </div>
+                <div class="modal-footer">
+                  <button type="submit"
+                    class="btn btn-primary waves-effect waves-light ">Import</button>
+                </div> -->
+              </form>
+            </div>
+          </div>
+  </div>
+</ng-template>
+
+<div class="row"> 
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="w3-bar"> 
+            <div class="input-group">
+                <div class="row align-items-center">
+                    <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                       
+                         <button type="button" class="btn btn-pill btn-block btn-primary" (click)="save();">Create</button> 
+                    </div>
+               
+                    <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                      <button type="button" class="btn btn-pill btn-block btn-primary" (click)="open(content)">Import</button>
+                 </div>
+ 
+                     <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                      <button type="button" (click)="exportAsXLSX()" class="btn btn-pill btn-block btn-primary">Export</button>
+                 </div> 
+                      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                          <a [routerLink] = "'/leaves/mail'"> <button type="button" class="btn btn-pill btn-block btn-primary">Email</button></a>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                            <a [routerLink] = "'/lcm/contract-labour'"> <button type="button" class="btn btn-pill btn-block btn-primary">Contractor</button></a>
+                          </div>
+                        <div class="form-group" >
+                            
+                          <div class="controls" >
+                              <div class="input-group" >
+
+                              <input id="appendedInputButtons" size="16" class="form-control" type="text">
+                              <span class="input-group-append">
+                              
+                                <button class="btn btn-secondary" type="button" >Search</button>
+                               
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div id="fetchbtn">
+                            <button type="button" class="btn btn-outline-success" (click)="getAllContractor();">Show List</button>
+                          </div> -->
+                        
+                  </div>
+            </div>
+          </div>
+           <br>
+           <br>
+        
+      <div class="card-header">
+          
+        <i class="fa fa-align-justify"></i> Contractor Reports
+        
+      </div>
+      <br>
+      
+     <br>
+      <!-- {{myresponse}} -->
+      <div >
+        <table class="table table-bordered table-hover">
+          <thead>
+            <th>SR NO</th>
+            <th>CODE</th>
+            <th>CONTRACTOR NAME</th>
+            <!-- <th>LAST NAME</th> -->
+            <th>MOBILE NO</th>
+            <th>DATE OF BIRTH</th>
+            <th>JOINING DATE</th>
+            <th>ADDRESS</th>
+            <th colspan="2">Action</th>
+            <!-- <th>Marital Status</th> -->
+           
+           
+          </thead>
+          <tbody>
+            <tr *ngFor="let contactor of myresponse">
+              <td>{{contactor.cd_id}}</td>
+              <td>{{contactor.cd_code}}</td>
+              <td>{{contactor.cd_fname}} {{contactor.cd_mname}} {{contactor.cd_lname}} </td>
+              <!-- <td>{{contactor.cd_lname}}</td> -->
+              <td>{{contactor.cd_mobile_no}}</td>
+              <td>{{contactor.cd_dob}}</td>
+              <td>{{contactor.cd_join_date}}</td>
+              <td>{{contactor.corr_line1}}</td>
+              <td><button type="button" class="btn btn-info mr-1" (click)="updateContractor(contactor);">UPDATE</button> 
+                <button type="button" class="btn btn-info mr-1" (click)="viewContractor(contactor);">VIEW</button> 
+                <a [routerLink]= "'/lcm/Contractor'"><button type="button" class="btn btn-info mr-1" (click)="getAllContractorDelete(contactor.cd_id)">DELETE</button></a>
+              </td>
+
+              
+             
+            </tr>
+          </tbody>  
+        </table>
+       
+
+     
+        <nav>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div bsModal #infoModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-info" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Deleted</h4>
+                <button type="button" class="close" (click)="infoModal.hide()" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Your data deleted successfully.&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="infoModal.hide()">Cancel</button>
+                <a [routerLink] = "'/lcm/View'">  <button type="button" class="btn btn-info">Delete</button></a>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        

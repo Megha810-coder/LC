@@ -1,0 +1,39 @@
+<button type="button" class="btn btn-pill btn-block1 btn-primary" (click)="list();">REPORT</button>
+
+<div class="card-body">
+  <table class="table table-bordered table-hover">
+    <thead>
+        
+      <th>Labour Name</th>
+      <th>Contractor Name</th>
+      <th>Department</th>
+      <th>Shift Status</th> 
+      <!-- <tr *ngFor="let labCheck of myresponse"></tr>
+      <th>{{labCheck.date}}</th>
+     </tr> -->
+     <th>Date</th>
+     <th>In </th>
+     <th>Out </th>
+      
+      
+    </thead>
+    <thead>
+      <th></th>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let labCheck of myresponse">
+       
+        <td>{{labCheck.Check_lab_name}} {{labCheck.Check_lab_name1}} {{labCheck.Check_lab_name2}}</td>
+        <td>{{labCheck.con_name}} {{labCheck.con_name1}} {{labCheck.con_name2}}</td> 
+        <td>{{labCheck.dept_id}}</td>
+        <td>{{labCheck.shift_time_id}}</td>
+        <td>{{labCheck.date}}</td>
+        <td>{{labCheck.time}}</td>
+        <td>{{labCheck.time1}}</td>
+
+        
+      </tr>
+    </tbody>  
+  </table>
+</div>

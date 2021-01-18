@@ -1,0 +1,132 @@
+<ng-template #content let-modal>
+  <div class="modal-header" style="background-color: lightsteelblue;">
+    <h4 class="modal-title" id="modal-basic-title" >Import</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" >
+        <div class="card-card">
+            <div class="card-body">
+              <form #import = "ngForm" (ngSubmit) = "Import(import.value)">
+                <div class="modal-body">
+                  <h5>Import Labour's Data by excel sheet</h5>
+                  <p>Please choose only excel file..</p>
+                  <!-- <input type="file" ng2FileSelect [uploader]="uploader" ngModel > -->
+                  <div class="col-md-9">
+                    <!-- <input type="file" id="file-input" name="file-input" ngModel> -->
+                    <input type="file" style="display: inline-block;" (change)="incomingfile($event)" placeholder="Upload File" accept=".xlsx">
+                       
+                    </div>
+      
+                </div>
+               <div class="modal-footer"> 
+                  <!-- <button type="button" class="btn btn-default waves-effect "
+                    data-dismiss="modal">Close</button> -->
+                  <!-- <button type="submit"
+                    class="btn btn-primary waves-effect waves-light ">Import</button> -->
+                    <button type="button" class="btn btn-info" (click)="Upload()">Upload</button> 
+                </div> 
+              </form>
+            </div>
+          </div>
+  </div>
+</ng-template>
+
+
+<div class="row"> 
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="w3-bar"> 
+            <div class="input-group">
+                <div class="row align-items-center">
+                    <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                        <button type="button"
+                        class="btn btn-pill btn-block btn-primary" (click)="save();">Create</button> 
+                    </div>
+                   
+                    <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                      <button type="button" class="btn btn-pill btn-block btn-primary" (click)="open(content)" ngModel>Import</button>
+                 </div>  
+                     <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                      <button type="button" (click)="exportAsXLSX()" class="btn btn-pill btn-block btn-primary">Export</button>
+                 </div>
+
+                      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                          <a [routerLink] = "'/leaves/mail'"> <button type="button" class="btn btn-pill btn-block btn-primary">Email</button></a>
+                        </div>
+                        <div class="form-group" >
+                            
+                          <div class="controls" >
+                              <div class="input-group" >
+
+                              <input id="appendedInputButtons" size="16" class="form-control" type="text">
+                              <span class="input-group-append">
+                              
+                                <button class="btn btn-secondary" type="button" >Search</button>
+                               
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div id="fetchbtn">
+                            <button type="button" class="btn btn-outline-success" (click)="getAllLabour();">Click me</button>
+                          </div> -->
+                        
+                  </div>
+            </div>
+          </div>
+           <br>
+           <br>
+        
+      <div class="card-header">
+          
+        <i class="fa fa-align-justify"></i> Labour Reports
+        
+      </div>
+      <br>
+      
+     <br>
+      <!-- {{myresponse}} -->
+      <div >
+        <table class="table table-bordered table-hover">
+          <thead>
+            <th>SR NO</th>
+            <th>CODE</th>
+            <th> LABOUR NAME</th>
+            <th>CONTRACTOR NAME </th>
+            <th>MOBILE NO</th>
+            <th>DATE OF BIRTH</th>
+            <th>JOINING DATE</th>
+            <!-- <th>ACTION</th> -->
+            <!-- <th>Marital Status</th> -->
+           
+          </thead>
+          <tbody>
+            <tr *ngFor="let labour of myresponse">
+              <td>{{labour.lab_id}}</td>
+              <td>{{labour.lab_code}}</td>
+              <td>{{labour.lab_fname }} {{labour.lab_lname}} </td>
+              <td>{{labour.cd_fname}} {{labour.cd_lname}}</td>
+              <td>{{labour.lab_mobile_no}}</td>
+              <td>{{labour.lab_dob}}</td>
+              <td> {{labour.lab_join_date}}</td>
+              <td><button type="button" class="btn btn-info mr-1" (click)="updateLabour(labour);">UPDATE</button> </td>
+              <br>
+              <td> <button type="button" class="btn btn-info mr-1" (click)="viewLabour(labour);">VIEW</button> </td>
+            </tr>
+          </tbody>  
+        </table>
+        <nav>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>

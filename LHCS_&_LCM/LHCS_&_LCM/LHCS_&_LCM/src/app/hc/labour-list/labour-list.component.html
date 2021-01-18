@@ -1,0 +1,202 @@
+<!-- <div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="w3-bar">
+        <div class="input-group">
+          <div class="row align-items-center">
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+
+              <a [routerLink]="'/lcm/labour-create'"> <button type="button"
+                  class="btn btn-pill btn-block btn-primary">Create</button> </a>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+              <button type="button" class="btn btn-pill btn-block btn-primary">Import</button>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+              <a [routerLink]="'/leaves/mail'"> <button type="button"
+                  class="btn btn-pill btn-block btn-primary">Email</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+
+      <div class="card-header">
+
+        <i class="fa fa-align-justify"></i> Combined All Table
+
+      </div>
+      <div class="card-body">
+        
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+              <th>Labour Code</th>
+            <th>Labour Name</th>
+            <th>Male</th>
+            <th>Marital Status</th>
+            <th>Date of Birth</th>
+            <th>City</th>
+            <th>Department</th>
+            <th>Date of Joining</th>
+            <th>Date of Joining</th>
+            
+            
+          </thead>
+          <tbody>
+            <tr *ngFor="let labour of myresponse">
+              <td>{{labour.lab_code }}</td>
+              
+              
+            </tr>
+          </tbody>  
+        </table>
+        <nav>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+ 
+</div> -->
+
+
+<!-- <div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="w3-bar">
+        <div class="input-group">
+          <div class="row align-items-center">
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+
+              <a [routerLink]="'/lcm/contractor-create'"> <button type="button"
+                  class="btn btn-pill btn-block btn-primary">Create</button> </a>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+              <button type="button" class="btn btn-pill btn-block btn-primary">Import</button>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+              <a [routerLink]="'/leaves/mail'"> <button type="button"
+                  class="btn btn-pill btn-block btn-primary">Email</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+
+      <div class="card-header">
+
+        <i class="fa fa-align-justify"></i> Combined All Table
+
+      </div>
+      <div id="fetchbtn">
+        <button type="button" class="btn btn-outline-success" (click)="getAllContractor();">Click me</button>
+      </div>
+      <div class="card-body">
+        
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+              <th>Contractor Code</th>
+            <th>Full Name</th>
+            <th>Mobile No</th>
+            <th>Address</th>
+            <th>Date of Birth</th>
+           
+            <th>Action</th>
+           
+            
+          </thead>
+          <tbody>
+            <tr *ngFor="let contractor of myresponse">
+              <td>{{contractor.lab_code }}</td>
+              <td>{{contractor.lab_cd_fname}}{{contractor.lab_cd_mname}}{{contractor.lab_cd_lname}}</td>
+              <td>{{contractor.lab_cd_mobile_no}}</td>
+              <td>{{contractor.lab_corr_line1}}{{contractor.lab_corr_line2}}</td>
+             
+            </tr>
+          </tbody>  
+        </table>
+        <nav>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div> 
+  
+</div>-->
+<div class="row"> 
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="w3-bar"> 
+            <div class="input-group">
+                <div class="row align-items-center">
+                    <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                        <a [routerLink] = "'/lcm/labour-create'"> <button type="button" class="btn btn-pill btn-block btn-primary">Create</button> </a>
+                    </div>
+                   
+                     <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                          <button type="button" class="btn btn-pill btn-block btn-primary">Import</button>
+                     </div>  
+                      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                          <a [routerLink] = "'/leaves/mail'"> <button type="button" class="btn btn-pill btn-block btn-primary">Email</button></a>
+                        </div>
+                        <!-- <div id="fetchbtn">
+                            <button type="button" class="btn btn-outline-success" (click)="getAllLabour();">Click me</button>
+                          </div> -->
+                        
+                  </div>
+            </div>
+          </div>
+           <br>
+           <br>
+        
+      <div class="card-header">
+          
+        <i class="fa fa-align-justify"></i> Combined All Table
+        
+      </div>
+      <br>
+      
+     <br>
+      <!-- {{myresponse}} -->
+     <div >
+        <table class="table table-bordered table-hover">
+          <thead>
+            <th>Sr no</th>
+            <th>Code</th>
+            <th> Name</th>
+            
+           
+          </thead>
+          <tbody>
+            <tr *ngFor="let labour of myresponse">
+              <td>{{labour.lab_id}}</td>
+              <td>{{labour.lab_code}}</td>
+              <td>{{labour.lab_fname}}  </td>
+             
+            </tr>
+          </tbody>  
+        </table>
+
+      </div>

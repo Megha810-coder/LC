@@ -1,0 +1,194 @@
+<!-- <div class="row"> 
+    <div class="col-lg-12">
+      <div class="card">
+      
+        <div class="card-footer">
+          <a [routerLink] = "'/lcm/Contractor'"> <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Back </button></a>
+      </div>
+          
+        <div class="card-header">
+            
+          <i class="fa fa-align-justify"></i>Contractor List
+          
+        </div>
+        
+        <div class="card-body">
+           
+                
+          <table class="table table-bordered table-striped table-sm">
+            
+            <thead>
+              <tr align="center">
+                <th>SR NO</th>
+                <th>CONTRACTOR NAME</th>
+                <th>LABOUR COUNT</th>
+                
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  
+                <td>1</td>
+                <td>Ankit Joshi</td>
+                <td>10</td>
+                
+                <td>
+                  <a [routerLink] = "'/lcm/Lab_list'"><button mat-button style="margin:10px;">Labour View</button></a>
+                  <a [routerLink] = "'/lcm/Lab_shift1'"><button mat-button style="margin:10px;">Shift 1</button></a>
+                  <a [routerLink] = "'/lcm/Lab_shift2'"><button mat-button style="margin:10px;">shift 2</button></a>
+                  <a [routerLink] = "'/lcm/Lab_shift3'"><button mat-button style="margin:10px;">shift 3</button></a>
+              </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Amit Patil</td>
+                <td>5</td>
+          
+                <td>
+                    <a [routerLink] = "'/lcm/Lab_list1'"><button mat-button style="margin:10px;">Labour View</button></a>
+                    <a [routerLink] = "'/lcm/Lab_shift11'"><button mat-button style="margin:10px;">Shift 1</button></a>
+                    <a [routerLink] = "'/lcm/Lab_shift22'"><button mat-button style="margin:10px;">shift 2</button></a>
+                    <a [routerLink] = "'/lcm/Lab_shift33'"><button mat-button style="margin:10px;">shift 3</button></a>
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
+          <nav>
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+   -->
+
+   <div class="row"> 
+    <div class="col-lg-12">
+      <div class="card">
+          <div class="w3-bar"> 
+              <div class="input-group">
+                  <div class="row align-items-center">
+                      <!-- <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                         
+                          <a [routerLink] = "'/lcm/contractor-create'"> <button type="button" class="btn btn-pill btn-block btn-primary">Create</button> </a>
+                      </div> -->
+                 
+                       <!-- <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                            <button type="button" class="btn btn-pill btn-block btn-primary">Import</button>
+                       </div>   -->
+                        <!-- <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                            <a [routerLink] = "'/leaves/mail'"> <button type="button" class="btn btn-pill btn-block btn-primary">Email</button></a>
+                          </div> -->
+                           
+                        <!-- <div id="fetchbtn">
+                          <button type="button" class="btn btn-outline-success" (click)="OnChange1();">Show List</button>
+                        </div> -->
+                          <div class="form-group" >
+                              
+                            <div class="controls" >
+                                <div class="input-group" >
+  
+                                <input id="appendedInputButtons" size="16" class="form-control" type="text">
+                                <span class="input-group-append">
+                                
+                                  <button class="btn btn-secondary" type="button" >Search</button>
+                                 
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- <div id="fetchbtn">
+                              <button type="button" class="btn btn-outline-success" (click)="getAllContractor();">Show List</button>
+                            </div> -->
+                          
+                    </div>
+              </div>
+            </div>
+             <br>
+             <br>
+          
+        <div class="card-header">
+            
+          <i class="fa fa-align-justify"></i> Contractor Reports
+          
+        </div>
+        <br>
+        
+       <br>
+        <!-- {{myresponse}} -->
+        <div >
+          <table class="table table-bordered table-hover">
+            <thead>
+              <th>SR NO</th>
+              <th>CODE</th>
+              <th> CONTRACTOR NAME</th>
+              <th>LABOUR VIEW</th>
+             
+             
+            </thead>
+            <tbody>
+              <tr *ngFor="let contactor of myresponse">
+                <td>{{contactor.cd_id}}</td>
+                <td>{{contactor.cd_code}}</td>
+                <td>{{contactor.cd_fname}} {{contactor.cd_mname}} {{contactor.cd_lname}}  </td>
+                <!-- <td>{{contactor.cd_fname}}</td> -->
+                <td> <div>
+                         
+                 <button type="button"  (click)="getAllLabour(contactor.cd_id);">Labour</button>
+                 <button type="button"  (click)="getShiftOneLabour(contactor.cd_id);">Shift_1</button>
+                 <button type="button"  (click)="getShiftTwoLabour(contactor.cd_id);">Shift_2</button>
+                 <button type="button"  (click)="getShiftThreeLabour(contactor.cd_id);">Shift_3</button>
+              </div> </td>
+               
+              </tr>
+            </tbody>  
+          </table>
+  
+    <!-- <h3>Labour List:{{myresponse1}}</h3>  -->
+  </div>  
+    
+  
+  
+      <table class="table table-bordered table-hover">
+        <thead>
+          
+          
+          <th> LABOUR NAME</th>
+          
+         
+         
+        </thead>
+        <tbody>
+          <tr *ngFor="let labour of myresponse1">
+            <td>{{labour}}</td>
+          
+         
+          
+           
+          </tr>
+        </tbody>  
+      </table>
+      <nav>
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>

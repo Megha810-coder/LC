@@ -1,0 +1,159 @@
+<head>
+  <style>
+    .card-header {
+      background-color: #BFC9CA;
+
+    }
+  </style>
+</head>
+<div class="animated fadeIn">
+  <div class="row">
+      
+    <div class="col-md-12">
+          
+      <div class="card">
+          <div class="card-footer">
+              <a [routerLink] = "'/lcm/Contractor'"> <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Back </button></a>
+          </div>
+        <div class="card-header">
+          <h3>Contractor Details</h3>
+        </div>
+        <div class="card-body">
+          <form >
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="text-input">Contractor Code:-</label>
+              <div class="col-md-3">
+                <input  name="cd_code" type="text" class=" form-control" (click)="ngOnInit()"  value="{{myresponse}}" [(ngModel)]="user.cd_code" > 
+            </div>
+              <!-- <div class="  col-sm-5 col-md-5 col-lg-5 col-xl-5 ">
+                <input type="file" class="form-control" id="cd_profile_photo" name="cd_profile_photo">
+                <img class="d-block img-fluid img-thumbnail" id="cd_profile_photo_view" style="height: 150px;"
+                  src="<%=contextPath %>/resources/cd_img/${contract.cd_img_code }" alt="Preview Photo here....">
+              </div> -->
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="row">
+                  <div class="  col-sm-2 col-md-2 col-lg-3 col-xl-2">
+                    <label for="cd_fname" class="block">Full Name:-</label>
+                  </div>
+                  <div class="form-group col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                    <select name="cd_title" id="cd_title" class="form-control" required
+                      data-bv-notempty-message="Please select title." [(ngModel)]="user.cd_title">
+                      <option value="">---Select Title---</option>
+                      <option value="M/S.">M/S</option>
+                      <option value="Mr.">Mr.</option>
+                      <option value="Mrs.">Mrs.</option>
+                      <option value="Miss.">Miss.</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                    <input id="cd_fname" name="cd_fname" type="text" class=" form-control" placeholder="First Name"
+                      required data-bv-notempty-message="Please enter first name." [(ngModel)]="user.cd_fname">
+                  </div>
+                  <div class="form-group col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                    <input id="cd_mname" name="cd_mname" type="text" class=" form-control" placeholder="Middle Name"
+                      required data-bv-notempty-message="Please enter middle name." [(ngModel)]="user.cd_mname">
+                  </div>
+                  <div class="form-group col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                    <input id="cd_lname" name="cd_lname" type="text" class=" form-control" placeholder="Last Name"
+                      required data-bv-notempty-message="Please enter last name." [(ngModel)]="user.cd_lname" >
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-3 col-md-3 col-lg-3 col-xl-2">
+                <label for="emp_gender" class="block">Gender:-</label>
+              </div>
+              <div class="form-group form-radio col-sm-10 col-md-10 col-lg-10 col-xl-10">
+                <div class="radio radio-inline">
+                  <label>
+                    <input type="radio" class="form_control" name="cd_gender" id="cd_gender_1" value="1">
+                    <i class="helper"  ></i>Male
+                  </label>
+                </div>
+                <div class="radio radio-inline">
+                  <label>
+                    <input type="radio" class="form_control" name="cd_gender" id="cd_gender_2" value="2">
+                    <i class="helper"  ></i>Female
+                  </label>
+                </div>
+                <div class="radio radio-inline">
+                  <label>
+                    <input type="radio" class="form_control" name="cd_gender" id="cd_gender_3" value="3" />
+                    <i class="helper" ></i>Transgender
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="date-input">Date Of Birth:- </label>
+              <div class="col-md-3">
+                <input class="form-control" id="cd_dob" type="date" name="cd_dob" placeholder="date" [(ngModel)]="user.cd_dob" >
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="text-input">Mobile No:-</label>
+              <div class="col-md-3">
+                <input id="cd_mobile_no" name="cd_mobile_no" type="text" class=" form-control" required
+                  data-bv-notempty-message="Please enter mobile number." [(ngModel)]="user.cd_mobile_no">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="select1">Marital Status:-</label>
+              <div class="col-md-3">
+                <select id="select1" name="select1" class="form-control" [(ngModel)]="user.cd_marital_status"  >
+                  <option value="Please select">Please select</option>
+                  <option value="1">Single</option>
+                  <option value="2">Married</option>
+                  <option value="3">Divorce</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="date-input">Joninig Date:- </label>
+              <div class="col-md-3">
+                <input class="form-control" id="cd_join_date" type="date" name="cd_join_date" placeholder="date" [(ngModel)]="user.cd_join_date">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="text-input">Correspondence Address:-</label>
+              <div class="col-md-3">
+                <input id="corr_line1" name="corr_line1" type="text" class=" form-control" required
+                  data-bv-notempty-message="line1...." placeholder="Add2" [(ngModel)]="user.corr_line1" >
+
+              </div>
+              <div class="col-md-3">
+                <input id="corr_line2" name="corr_line2" type="text" class=" form-control" required
+                  data-bv-notempty-message="line2...." placeholder="Add2" [(ngModel)]="user.corr_line2" >
+
+              </div>
+
+              <div class="col-md-3">
+                <select (click)="ngOnInit()" name="City"  >  
+                  <option value="0">--Select--</option>  
+                  <option *ngFor="let city of myresponse2"  
+                          value={{city}}>  
+                      {{city}}  
+                  </option>  
+</select> 
+              </div>
+              
+
+            </div>
+
+      </form>
+    </div>
+      </div>
+
+    </div>
+   
+  </div>
+ 
+</div>
+
+

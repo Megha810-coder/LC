@@ -1,0 +1,114 @@
+<ng-template #content let-modal>
+  <div class="modal-header" style="background-color: lightsteelblue;">
+    <h4 class="modal-title" id="modal-basic-title" >Import</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" >
+        <div class="card-card">
+            <div class="card-body">
+              <form #import = "ngForm" (ngSubmit) = "Import(import.value)">
+                <div class="modal-body">
+                  <h5>Import Attendance by excel sheet</h5>
+                  <p>Please choose only excel file..</p>
+                  <!-- <input type="file" ng2FileSelect [uploader]="uploader" ngModel > -->
+                  <div class="col-md-9">
+                    <!-- <input type="file" id="file-input" name="file-input" ngModel> -->
+                    <input type="file" style="display: inline-block;" (change)="incomingfile($event)" placeholder="Upload File" accept=".xlsx">
+                       
+                    </div>
+      
+                </div>
+               <div class="modal-footer"> 
+                  <!-- <button type="button" class="btn btn-default waves-effect "
+                    data-dismiss="modal">Close</button> -->
+                  <!-- <button type="submit"
+                    class="btn btn-primary waves-effect waves-light ">Import</button> -->
+                    <button type="button" class="btn btn-info" (click)="Upload()">Upload</button> 
+                </div> 
+              </form>
+            </div>
+          </div>
+  </div>
+</ng-template>
+
+<div class="row"> 
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="w3-bar"> 
+            <div class="input-group">
+                <div class="row align-items-center">
+                    <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                       
+                        <a [routerLink] = "'/lcm/check-in-create'"> <button type="button" class="btn btn-pill btn-block btn-primary">Create</button> </a>
+                    </div>
+                   
+                    <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                      <button type="button" class="btn btn-pill btn-block btn-primary" (click)="open(content)" ngModel>Import</button>
+                 </div>
+  
+                     <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                      <a [routerLink] = "'/lcm/data'"><button type="button" class="btn btn-pill btn-block btn-primary">Export</button></a>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                          <a [routerLink] = "'/leaves/mail'">  <button type="button" class="btn btn-pill btn-block btn-primary">Email</button></a>
+                        </div>
+                        <div class="form-group" >
+                            
+                          <div class="controls" >
+                              <div class="input-group" >
+
+                              <input id="appendedInputButtons" size="16" class="form-control" type="text">
+                              <span class="input-group-append">
+                              
+                                <button class="btn btn-secondary" type="button" >Search</button>
+                               
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div id="fetchbtn">
+                            <button type="button" class="btn btn-pill btn-block btn-primary" (click)="getAllLabourCheck();">Show List</button>
+                          </div> -->
+                  </div>
+            </div>
+          </div>
+           <br>
+           <br>
+        
+      <div class="card-header">
+          
+        <i class="fa fa-align-justify"></i> Manual Check-In Reports
+        
+      </div>
+      <div class="card-body">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <th>Labour Name</th>
+                <th>Contractor Name</th>
+                <th>Department</th>
+                <th>Shift Status</th> 
+                <th>Check-In Time</th>
+                <th>Check-Out Time</th>
+                <th>Action</th>
+                
+              </thead>
+              <tbody>
+                <tr *ngFor="let labCheck of myresponse">
+                  <td>{{labCheck.Check_lab_name}} {{labCheck.Check_lab_name1}} {{labCheck.Check_lab_name2}}</td>
+                  <td>{{labCheck.con_name}} {{labCheck.con_name1}} {{labCheck.con_name2}}</td> 
+                  <td>{{labCheck.dept_id}}</td>
+                  <td>{{labCheck.shift_time_id}}</td>
+                  <td>{{labCheck.check_in_date2}}   {{labCheck.check_in_time2}}</td>
+                  <td>{{labCheck.check_out_date1}}  {{labCheck.check_out_time1}}</td>
+                  
+                  <td><button type="button" class="btn btn-pill btn-block1 btn-primary" (click)="DateValue(labCheck.lab_check_id);">Check_Out</button> </td>
+                </tr>
+              </tbody>  
+            </table>
+      </div>
+    </div>
+  </div>
+  <!--/.col-->
+</div>

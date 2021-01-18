@@ -1,0 +1,53 @@
+<ng-template #content let-modal>
+  <div class="modal-header" style="background-color: lightsteelblue;">
+    <h4 class="modal-title" id="modal-basic-title" >Import</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" >
+        <div class="card-card">
+            <div class="card-body">
+              <form >
+                <div class="modal-body">
+                  <h5>Weely Data</h5>
+                  <div class="col-md-9">
+                    <label class="col-md-2 col-form-label" for="date-input">To:- </label>
+                    <input class="form-control" #to type="date" name="" placeholder="date"  >
+                    </div>
+                    <div class="col-md-9">
+                      <label class="col-md-2 col-form-label" for="date-input">From:- </label>
+                      <input class="form-control" #from type="date" name="" placeholder="date" >
+                      </div>
+                </div>
+               <div class="modal-footer"> 
+                    <button type="button" class="btn btn-info" (click)="Import(to.value,from.value)">Submit</button> 
+                </div> 
+              </form>
+            </div>
+          </div>
+  </div>
+</ng-template>
+
+<div class="w3-bar"> 
+  <div class="input-group">
+      <div class="row align-items-center">
+          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+             
+             <button type="button" class="btn btn-pill btn-block btn-primary" (click)="daily()" >Daily</button> 
+          </div>
+         
+          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+               <button type="button" class="btn btn-pill btn-block btn-primary"(click)="open(content)">Weekly</button>
+       </div>
+
+           <!-- <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <a [routerLink] = "''"><button type="button" class="btn btn-pill btn-block btn-primary">Export</button></a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                <a [routerLink] = "''">  <button type="button" class="btn btn-pill btn-block btn-primary">Email</button></a>
+              </div>
+               -->
+        </div>
+  </div>
+</div>

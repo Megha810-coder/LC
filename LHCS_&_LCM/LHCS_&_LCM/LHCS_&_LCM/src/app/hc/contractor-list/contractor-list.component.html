@@ -1,0 +1,56 @@
+<div class="row"> 
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="w3-bar"> 
+            <div class="input-group">
+                <div class="row align-items-center">
+                    <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                       
+                        <a [routerLink] = "'/lcm/contractor-create'"> <button type="button" class="btn btn-pill btn-block btn-primary">Create</button> </a>
+                    </div>
+               
+                     <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                          <button type="button" class="btn btn-pill btn-block btn-primary">Import</button>
+                     </div>  
+                      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                          <a [routerLink] = "'/leaves/mail'"> <button type="button" class="btn btn-pill btn-block btn-primary">Email</button></a>
+                        </div>
+                        <div id="fetchbtn">
+                            <button type="button" class="btn btn-outline-success" (click)="getAllContractor();">Show List</button>
+                          </div>
+                        
+                  </div>
+            </div>
+          </div>
+           <br>
+           <br>
+        
+      <div class="card-header">
+          
+        <i class="fa fa-align-justify"></i> Combined All Table
+        
+      </div>
+      <br>
+      
+     <br>
+      <!-- {{myresponse}} -->
+     <div >
+        <table class="table table-bordered table-hover">
+          <thead>
+            <th>Sr no</th>
+            <th>Code</th>
+            <th> Name</th>
+            
+           
+          </thead>
+          <tbody>
+            <tr *ngFor="let contactor of myresponse">
+              <td>{{contactor.cd_id}}</td>
+              <td>{{contactor.cd_code}}</td>
+              <td>{{contactor.cd_fname}}  </td>
+             
+            </tr>
+          </tbody>  
+        </table>
+
+      </div>

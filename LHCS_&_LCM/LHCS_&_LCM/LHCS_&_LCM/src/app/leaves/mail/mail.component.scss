@@ -1,0 +1,33 @@
+.w3-bar{
+    background-color: white;
+    height:100%;
+    width: 100%;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 80px;
+    padding-left: 30px;
+    flex-flow: row wrap;
+    border-bottom: 1px solid #cccccc;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .bg {
+   
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .app-body{
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+  .button{
+      color: lightblue;
+  }

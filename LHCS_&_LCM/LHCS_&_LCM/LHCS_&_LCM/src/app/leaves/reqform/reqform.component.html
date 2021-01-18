@@ -1,0 +1,163 @@
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      * {
+    box-sizing:border-box: 2px;
+  }
+    </style>
+    </head>
+    <body>
+    
+    <div class="w3-card-4">
+    
+    <div class="container">
+      
+      <form action="add" >
+        <input type="hidden" name="id"  value="${product.getId() }"> 
+    <div class="row">
+          <div class="col-100">
+            <h2> Employee Leave Request Form</h2>
+            <p> Please fill in this form with all the required information. HR will contact you shortly after the leave request has been approved by your supervisor.</p>
+          </div>
+        </div>
+        <hr>
+        <br>
+        <div class="row">
+          <div class="col-25">
+            <label for="Fname">Employee Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="fname" name="fname" placeholder="Enter Employee name...">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-25">
+            <label for="lname">Supervisor Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="lname" name="lname" placeholder="Enter Your Supervisor name...">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-25">
+            <label for="lname">Department</label>
+          </div>
+            <div class="col-75">
+             <select id="dept" name="dept" placeholder="Department..">
+              <option value="SelectDept">Select Department</option>
+              <option value="Production">Production</option>
+              <option value="IT">IT</option>
+              <option value="Accounts">Accounts</option>
+               <option value="Sales & Puchasing">Sales & Puchasing</option>
+               <option value="Marketing">Marketing</option>
+              <option value="Quality">Quality</option>
+              <option value="Shipping.">Shipping.</option>
+            </select>
+        </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-25">
+            <label for="lname">Reason for Leave</label>
+          </div>
+          <div class="col-75">
+             <select id="refer" name="refer" placeholder="city..">
+              <option value="australia">Select</option>
+              <option value="Walk-In">Sick Leave</option>
+              <option value="Employee">Causal Leave </option>
+              <option value="Facebook">Unpaid Leave</option>
+               <!-- <option value="Other">Leave of Absence</option>
+               <option value="Walk-In">Jury Duty</option>
+              <option value="Employee">Sick-Family</option>
+              <option value="Facebook">Doctor Appoinment</option>
+               <option value="Other">Funeral</option>
+               <option value="Facebook">Military</option>
+               <option value="Other">Other</option> -->
+            </select>
+        </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-25">
+            <label for="date">Leave Date</label>
+          </div>
+          <div class="col-25">
+            <input type="date"  id="bday" name="bday" placeholder="leave date..">
+          </div>
+    
+         <div class="col-25">
+            <label for="date">Leave Time</label>
+          </div>
+          <div class="col-25">
+            <input type="time" name="usr_time">
+          </div>
+    
+        </div>
+        <br>
+       <!--   <div class="row">
+          <div class="col-25">
+            <label for="date">Leave Time</label>
+          </div>
+          <div class="col-75">
+            <input type="time" name="usr_time">
+          </div>
+        </div> -->
+        <br>
+         <div class="row">
+          <div class="col-25">
+            <label for="date">Return Date</label>
+          </div>
+          <div class="col-25">
+            <input type="date"  id="bday" name="bday" >
+          </div>
+    
+         <div class="col-25">
+            <label for="date">Return Time</label>
+          </div>
+          <div class="col-25">
+            <input type="time"    name="usr_time">
+          </div>
+    
+        </div>
+        <br>
+      <!--    <div class="row">
+          <div class="col-25">
+            <label for="date">Return Time</label>
+          </div>
+          <div class="col-75">
+            <input type="time"    name="usr_time">
+          </div>
+        </div>
+     -->    <br>
+        <div class="row">
+          <div class="col-25">
+            <label for="lname">Total number of days requested </label>
+          </div>
+          <div class="col-75">
+            <input type="number"  name="points" placeholder="----Days----">
+          </div>
+        </div>
+        <br>
+        
+          
+        <div class="row" style=" align:'center'">
+          <div class="col-50">
+           <!-- <input type="submit" value="submit"> -->
+           <a [routerLink] = "'/leaves/thankyou'">  <button class="button" style="vertical-align:middle"><span>Submit</span></button></a>
+          </div>
+        </div>
+      </form>
+     </div>
+      
+    
+    </div>
+    
+    </body>
+    </html>
+    
